@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  d_time: 2022-09-13 16:22:41
+  a_time: 2022-09-13 16:22:41
+  duration: MyString
+
+two:
+  d_time: 2022-09-13 16:22:41
+  a_time: 2022-09-13 16:22:41
+  duration: MyString

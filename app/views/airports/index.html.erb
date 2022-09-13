@@ -1,0 +1,19 @@
+<h1>Airport Index</h1>
+
+<table>
+	<tr>
+	<th>Airport Name</th>
+	<th>Country</th>
+	<th>State</th>
+	<th>City</th>
+    </tr>
+ <%@airports.each do |air| %>
+    <tr>
+	<td><%=air.airport_name %></td>
+	<td><%= air.country %></td>
+	<td><%= air.state %></td>
+	<td><%= air.city %></td>
+    </tr>
+ <% end %>
+	
+</table>
