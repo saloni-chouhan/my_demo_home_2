@@ -1,15 +1,15 @@
 <h1>Add Airline </h1>
 
- <%= form_with model: @airline,local: true do |form| %>
+ <%= form_with(model: [ @airport, @airport.airlines.build ], local: true) do |form|  %>
  <!-- Validations Section -->
- <% if @airport.errors.any? %>
+ <% if @airline.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@airport.errors.count, "error") %> prohibited
+        <%= pluralize(@airline.errors.count, "error") %> prohibited
         this airport from being saved:
       </h2>
       <ul>
-        <% @airport.errors.full_messages.each do |msg| %>
+        <% @airline.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -19,26 +19,14 @@
 
   <!-- Add Data -->
  <p>
-  <%= form.label :airport_name %><br />
-  <%= form.text_field :airport_name %>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %>
 </p>
 
 
  <p>
-  <%= form.label :country %><br />
-  <%= form.text_field :country %>
-</p>
-
-
- <p>
-  <%= form.label :state %><br />
-  <%= form.text_field :state %>
-</p>
-
-
- <p>
-  <%= form.label :city %><br />
-  <%= form.text_field :city %>
+  <%= form.label :airline_type %><br />
+  <%= form.text_field :airline_type %>
 </p>
 
 

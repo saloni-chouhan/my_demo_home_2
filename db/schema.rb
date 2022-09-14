@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220913121712) do
+ActiveRecord::Schema.define(version: 20220914064051) do
 
   create_table "airlines", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20220913121712) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "name_of_passenger"
+    t.string "price"
+    t.string "source"
+    t.string "destination"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "ticket_id"
+    t.index ["ticket_id"], name: "index_bookings_on_ticket_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -49,6 +60,19 @@ ActiveRecord::Schema.define(version: 20220913121712) do
     t.datetime "updated_at", null: false
     t.integer "flight_id"
     t.index ["flight_id"], name: "index_schedules_on_flight_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "seatno"
+    t.string "class"
+    t.string "source"
+    t.string "destination"
+    t.string "flight_name"
+    t.string "passport_no"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "flight_id"
+    t.index ["flight_id"], name: "index_tickets_on_flight_id"
   end
 
   create_table "users", force: :cascade do |t|
