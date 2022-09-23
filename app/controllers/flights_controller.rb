@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
-	# before_action :set_airline
 	before_action :authenticate_user!, except: [:index, :show]
+	before_action :is_admin?, only: [:create, :new , :update , :edit]
 	def new 
 		@flight = Flight.new
 	end
@@ -52,6 +52,9 @@ class FlightsController < ApplicationController
 	# def set_airline
  #      @airline = Airline.find(params[:airline_id])
 	# end
+	def is_admin?
+    	current_user.role.code == 'admin'
+    end
 
 	def flight_params
 		params.require(:flight).permit(:name,:source,:destination,:status,:airline_id)

@@ -28,7 +28,7 @@
 		<th colspan="3">Actions</th>
 	</tr>
 <% @books.each do |b| %>
-<% if b.user_id == current_user.id %>
+<% if current_user.role.code == 'admin' || b.user_id == current_user.id %>
 	<tr>
 		<td><%= b.name_of_passenger %></td>
 		<td><%= b.price %></td>
