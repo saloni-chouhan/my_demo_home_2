@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220914064051) do
+ActiveRecord::Schema.define(version: 20220923071811) do
 
   create_table "airlines", force: :cascade do |t|
     t.string "name"
@@ -38,7 +38,15 @@ ActiveRecord::Schema.define(version: 20220914064051) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "ticket_id"
+    t.string "passport_no"
+    t.string "address"
+    t.string "class_type"
+    t.string "age"
+    t.string "phone"
+    t.string "email"
+    t.integer "user_id"
     t.index ["ticket_id"], name: "index_bookings_on_ticket_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -50,6 +58,13 @@ ActiveRecord::Schema.define(version: 20220914064051) do
     t.datetime "updated_at", null: false
     t.integer "airline_id"
     t.index ["airline_id"], name: "index_flights_on_airline_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -64,11 +79,9 @@ ActiveRecord::Schema.define(version: 20220914064051) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "seatno"
-    t.string "class"
+    t.string "class_type"
     t.string "source"
     t.string "destination"
-    t.string "flight_name"
-    t.string "passport_no"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "flight_id"
@@ -86,13 +99,18 @@ ActiveRecord::Schema.define(version: 20220914064051) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "airport_id"
+    t.string "name"
+    t.string "age"
+    t.string "phone"
+    t.integer "role_id"
+    t.integer "role"
     t.index ["airport_id"], name: "index_users_on_airport_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
 end

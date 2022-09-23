@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+	  <div class="text-center">
+	  		<div class="col-md-6">
+			<div class="card text-center">
+  <div class="card-header">
+    <strong>Flight Details</strong>
+  </div>
+  <div class="card-body">
+    <table class="table">
+       <tr>
+       	<th class="card-title">Flight Name</th>
+        <th class="card-title">From: </th>
+        <th class="card-title">To: </th>
+        <th class="card-title">Status</th>
+        <th class="card-title">Airline</th>
+       </tr>
+      <tr>
+      	<td class="card-text"><%= @flight.name %></td>
+      	<td class="card-text"><%= @flight.source %></td>
+      	<td class="card-text"><%= @flight.destination %></td>
+      	<td class="card-text"><%= @flight.status %></td>
+      	<td class="card-text"><%= @flight.airline_id %></td> 
+      </tr>
+    </table>
+  </div>
+ 
+  <div class="card-footer text-muted">
+    <% if user_signed_in? && current_user.role.code == "admin" %>
+    <%= link_to 'Edit', edit_flight_path(@flight), class: "btn btn-success" %>
+    <% end %>
+	<%= link_to 'Back', flights_path, class: "btn btn-dark" %>
+  </div>
+</div>
+		</div>	
+	  </div>
+	</div>	
+</div>

@@ -1,0 +1,85 @@
+<%= form_with model: @book,local: true do |form| %>
+ <!-- Validations Section -->
+ <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h5>
+        <%= pluralize(@book.errors.count, "error") %> prohibited
+        this book from being saved:
+      </h5>
+      <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <!-- Validation Section Ends Here -->
+
+  <!-- Add Data -->
+ <p>
+  <%= form.label :Passenger_Name %><br />
+  <%= form.text_field :name_of_passenger, class: "form-control", placeholder: "Passenger Name" %>
+</p>
+
+
+ <p>
+  <%= form.label :Ticket_Price %><br />
+  <%= form.text_field :price, class: "form-control", placeholder: "Ticket Price" %>
+</p>
+
+
+ <p>
+  <%= form.label :source %><br />
+  <%= form.text_field :source , class: "form-control", placeholder: "Source"%>
+</p>
+
+ <p>
+  <%= form.label :destination %><br />
+  <%= form.text_field :destination, class: "form-control", placeholder: "Destination" %>
+</p>
+
+ <p>
+  <%= form.label :passport_no %><br />
+  <%= form.text_field :passport_no, class: "form-control", placeholder: "Passport Number" %>
+</p>
+
+ <p>
+  <%= form.label :address %><br />
+  <%= form.text_field :address, class: "form-control", placeholder: "Address" %>
+</p>
+
+ <p>
+  <%= form.label :class_type %><br />
+  <%= form.text_field :class_type, class: "form-control", placeholder: "Class Type" %>
+</p>
+
+ <p>
+  <%= form.label :age %><br />
+  <%= form.text_field :age, class: "form-control", placeholder: "Age" %>
+</p>
+
+ <p>
+  <%= form.label :Contact_Number %><br />
+  <%= form.text_field :phone, class: "form-control", placeholder: "Contact Details" %>
+</p>
+
+<p>
+  <%= form.label :Email %><br />
+  <%= form.text_field :email, class: "form-control", placeholder: "Email" %>
+</p>
+
+ <p>
+  <%= form.label :Ticket_Number %><br />
+  <%= form.select :ticket_id, Ticket.all.collect { |t| [ t.id ]  }, class: "form-select" %>
+</p>
+
+<p>
+  <%= form.number_field :user_id ,required: true, class: 'form-control', value: current_user.id, type: :hidden %>
+</p>
+
+<p>
+	<%= form.submit class: "btn btn-outline-success" %>
+</p>
+
+<% end %>

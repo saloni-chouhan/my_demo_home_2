@@ -1,0 +1,36 @@
+
+            
+<%= form_with(model: [ @airport, @airline], local: true) do |form|  %>
+
+ <% if @airline.errors.any? %>
+    <div id="error_explanation">
+      <h4>
+        <%= pluralize(@airline.errors.count, "error") %> prohibited
+        this airline from being saved:
+      </h4>
+      <ul>
+        <% @airline.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+ <p>
+  <%= form.label :name %><br />
+  <%= form.text_field :name, class: "form-control", placeholder: "Airline Name" %>
+</p>
+
+
+ <p>
+  <%= form.label :airline_type %><br />
+  <%= form.text_field :airline_type, class: "form-control", placeholder: "Airline Type"  %>
+</p>
+
+<p>
+    <%= form.submit  class: "btn btn-primary" %>
+    <%= link_to 'Back', airport_airlines_path, class: "btn btn-dark" %>
+</p>
+
+ <% end %>
+        

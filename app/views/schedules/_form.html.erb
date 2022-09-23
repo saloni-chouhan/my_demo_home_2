@@ -1,0 +1,47 @@
+<%= form_with model: @schedule,local: true do |form| %>
+ <!-- Validations Section -->
+ <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@schedule.errors.count, "error") %> prohibited
+        this schedule from being saved:
+      </h2>
+      <ul>
+        <% @schedule.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <!-- Validation Section Ends Here -->
+
+  <!-- Add Data -->
+<p>
+  <%= form.label :DepartureTime %><br />
+  <%= form.datetime_select :d_time, class: "form-select" %>
+</p>
+
+
+ <p>
+  <%= form.label :Arrival_Time %><br />
+  <%= form.datetime_select :a_time , class: "form-select" %>
+</p>
+
+
+ <p>
+  <%= form.label :duration %><br />
+  <%= form.text_field :duration, class: "form-control" %>
+</p>
+
+ <p>
+  <%= form.label :flight_id %><br />
+  <%= form.select :flight_id, Flight.all.collect { |f| [ f.name , f.id ]  } %>
+</p>
+
+
+<p>
+	<%= form.submit class: "btn btn-outline-success" %>
+</p>
+
+<% end %>

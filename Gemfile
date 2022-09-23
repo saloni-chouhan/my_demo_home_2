@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+
+gem 'rubocop', require: false
+
+gem 'letter_opener', group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

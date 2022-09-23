@@ -1,22 +1,13 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h3>Sign up</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.email_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control' %>
   </div>
 
   <div class="field">
@@ -24,17 +15,43 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password",class: 'form-control'%>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: 'form-control' %>
   </div>
+  
+  <div class="field">
+    <%= f.label :airport_id %><br />
+    <%= f.select :airport_id, Airport.all.collect { |a| [ a.airport_name , a.id ]  } ,class: "form-select" %>
+  </div><br />
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name",class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age, autofocus: true, autocomplete: "age",class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone",class: 'form-control' %>
+  </div>
+
+
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>
+
 <% end %>
+<br />
 
 <%= render "devise/shared/links" %>
+
+</div>

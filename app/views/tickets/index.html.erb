@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row">
+		<div class="col-10">
+			<h3>Ticket List</h3>
+
+<%= link_to 'Add Ticket',new_ticket_path, class: "btn btn-outline-primary btn-sm" %><br><br>
+<%= form_for "",url: tickets_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search..",class: "form-control" %>
+<% end %>
+<br><br>  
+
+
+<table class="table table-striped table-hover table-bordered">
+	<tr>
+		<th>Seat No.</th>
+		<th>Class Type</th>
+		<th>Source</th>
+		<th>Destination</th>
+		<th>Flight Id</th>
+		<th colspan="3">Actions</th>
+	</tr>
+<% @tickets.each do |t| %>
+	<tr>
+		<td><%= t.seatno %></td>
+		<td><%= t.class_type %></td>
+		<td><%= t.source %></td>
+		<td><%= t.destination %></td>
+		<td><%= t.flight_id %></td>
+		<td><%= link_to 'Show',ticket_path(t), class: "btn btn-outline-info btn-sm" %></td>
+		<td><%= link_to 'Edit',edit_ticket_path(t), class: "btn btn-outline-warning btn-sm"  %></td>
+		<td><%= link_to 'delete',ticket_path(t), class: "btn btn-outline-danger btn-sm" ,
+		method: :delete, data: { confirm: "Are you Sure?? " } %></td>
+	</tr>
+	<% end %>
+	
+</table>
+		</div>
+	</div>
+</div>

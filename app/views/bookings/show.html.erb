@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row">
+	  <div class="text-center">
+	  		<div class="col">
+			<div class="card text-center">
+  <div class="card-header">
+    <strong>Congratulations!! Your ticket is Booked Successfully..</strong>
+  </div>
+  <div class="card-body">
+    <table class="table">
+       <tr>
+       	<th class="card-title">Passenger Name</th>
+        <th class="card-title">Ticket Price</th>
+        <th class="card-title">Source</th>
+        <th class="card-title">Destination</th>
+        <th class="card-title">Passport No.</th>
+        <th class="card-title">Address</th>
+        <th class="card-title">Class Type</th>
+        <th class="card-title">Contact</th>
+        <th class="card-title">Age</th>
+        <th class="card-title">Email</th>
+        <th class="card-title">Ticket Id</th>
+       </tr>
+      <tr>
+      	<td class="card-text"><%= @book.name_of_passenger %></td>
+      	<td class="card-text"><%= @book.price %></td>
+      	<td class="card-text"><%= @book.source %></td>
+      	<td class="card-text"><%= @book.destination %></td>
+        <td class="card-text"><%= @book.passport_no %></td>
+        <td class="card-text"><%= @book.address %></td>
+        <td class="card-text"><%= @book.class_type %></td>
+        <td class="card-text"><%= @book.phone %></td>
+        <td class="card-text"><%= @book.age %></td>
+        <td class="card-text"><%= @book.email %></td>
+      	<td class="card-text"><%= @book.ticket_id %></td> 
+      </tr>
+    </table>
+  </div>
+  <div class="card-footer text-muted">
+    <% if user_signed_in? && current_user.role.code == "admin" %>
+    <%= link_to 'Edit', edit_booking_path(@book), class: "btn btn-success" %>
+    <% else %>
+    <%= link_to 'Cancel Ticket', booking_path(@book), class: "btn btn-danger",
+    method: :delete, data: { confirm: "Are You Sure? " } %>
+    <% end %>
+	<%= link_to 'Back', bookings_path, class: "btn btn-dark" %>
+  </div>
+</div>
+		</div>	
+	  </div>
+	</div>	
+</div>

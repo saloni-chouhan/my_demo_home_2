@@ -1,0 +1,49 @@
+<%= form_with(model: @airport,local: true) do |form| %>
+ <!-- Validations Section -->
+ <% if @airport.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@airport.errors.count, "error") %> prohibited
+        this airport from being saved:
+      </h2>
+      <ul>
+        <% @airport.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- Validation Section Ends Here -->
+
+  <!-- Add Data -->
+ <p>
+  <% form.label :airport_name %><br />
+  <%= form.text_field :airport_name, class: "form-control", placeholder: "Airport Name" %>
+</p>
+
+
+ <p>
+  <%= form.label :country %><br />
+  <%= form.text_field :country, class: "form-control", placeholder: "Country"  %>
+</p>
+
+
+ <p>
+  <%= form.label :state %><br />
+  <%= form.text_field :state, class: "form-control", placeholder: "State"  %>
+</p>
+
+
+ <p>
+  <%= form.label :city %><br />
+  <%= form.text_field :city, class: "form-control", placeholder: "City"  %>
+</p>
+
+
+<p>
+	<%= form.submit class: "btn btn-primary" %>
+  <%= link_to 'Back', airports_path, class: "btn btn-dark" %>
+</p>
+
+ <% end %>
+

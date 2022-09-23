@@ -1,0 +1,50 @@
+<%= form_with(model: @flight,local: true) do |form| %>
+
+<!-- Validations Section -->
+ <% if @flight.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@flight.errors.count, "error") %> prohibited
+        this Flight from being saved:
+      </h2>
+      <ul>
+        <% @airline.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- Validation Section Ends Here -->
+
+    <!-- Add Data -->
+ <p>
+  <%= form.label :name %><br />
+  <%= form.text_field :name, class: "form-control", placeholder: "Flight Name" %>
+</p>
+
+
+ <p>
+  <%= form.label :source %><br />
+  <%= form.text_field :source, class: "form-control", placeholder: "Source" %>
+</p>
+
+<p>
+  <%= form.label :destination %><br />
+  <%= form.text_field :destination, class: "form-control", placeholder: "Destination" %>
+</p>
+
+<p>
+  <%= form.label :status %><br />
+  <%= form.text_field :status, class: "form-control", placeholder: "Status" %>
+</p>
+
+<p>
+  <%= form.label :airline_id %><br />
+  <%= form.select :airline_id, Airline.all.collect { |a| [ a.name, a.id ]  } %>
+</p>
+
+<p>
+	<%= form.submit class: "btn btn-outline-success" %>
+</p>
+
+<% end %>

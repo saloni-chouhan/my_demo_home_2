@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+	  <div class="text-center">
+	  		<div class="col-md-8">
+			<div class="card text-center">
+  <div class="card-header">
+    <strong>Ticket Details</strong>
+  </div>
+  <div class="card-body">
+    <table class="table">
+       <tr>
+       	<th class="card-title">Seat Number</th>
+        <th class="card-title">Class Type</th>
+        <th class="card-title">From</th>
+        <th class="card-title">To</th>
+        <th class="card-title"> Flight Id</th>
+       
+       </tr>
+      <tr>
+      	<td class="card-text"><%= @ticket.seatno %></td>
+      	<td class="card-text"><%= @ticket.class_type %></td>
+      	<td class="card-text"><%= @ticket.source %></td>
+      	<td class="card-text"><%= @ticket.destination %></td> 
+      	<td class="card-text"><%= @ticket.flight_id %></td> 
+      </tr>
+    </table>
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-success" %>
+	<%= link_to 'Back', tickets_path, class: "btn btn-dark" %>
+  </div>
+</div>
+		</div>	
+	  </div>
+	</div>	
+</div>

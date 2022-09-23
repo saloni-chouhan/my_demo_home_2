@@ -1,19 +1,30 @@
-<h1>Airport Index</h1>
+<div class="container">
+	<h3>Airport List</h3>
 
-<table>
+<%= link_to 'Add Airport', new_airport_path, class: "btn btn-outline-primary btn-sm" %><br><br>
+
+<table class="table table-striped table-hover table-bordered">
 	<tr>
 	<th>Airport Name</th>
 	<th>Country</th>
 	<th>State</th>
 	<th>City</th>
+	<th colspan="3">Actions</th>
     </tr>
- <% @airports.each do |air| %>
+ <% @airports.each do |airport| %>
     <tr>
-	<td><%=air.airport_name %></td>
-	<td><%= air.country %></td>
-	<td><%= air.state %></td>
-	<td><%= air.city %></td>
+	<td><%= airport.airport_name %></td>
+	<td><%= airport.country %></td>
+	<td><%= airport.state %></td>
+	<td><%= airport.city %></td>
+	<td><%= link_to 'Show',airport_path(airport),class: "btn btn-outline-info btn-sm" %></td>
+		<td><%= link_to 'Edit',edit_airport_path(airport),class: "btn btn-outline-warning btn-sm"  %></td>
+		<td><%= link_to 'Delete', airport_path(airport),class: "btn btn-outline-danger btn-sm",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+	</td>
     </tr>
  <% end %>
 	
 </table>
+</div>

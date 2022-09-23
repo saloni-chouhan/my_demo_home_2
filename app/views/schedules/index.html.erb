@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h3>Schedule Details</h3>
+  <% if user_signed_in?  && current_user.role.code == "admin" %>
+<%= link_to 'Add Schedules', new_schedule_path, class: "btn btn-outline-primary btn-sm" %>
+<% end %> <br><br>
+
+<%= form_for "",url: schedules_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search..",class: "form-control" %>
+<% end %>
+<br><br>  
+
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Departure Time</th>
+    <th>Arrival Time</th>
+    <th>Duration</th>
+    <th>Flight Id</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  <% @schedules.each do |sh| %>
+  <tr>
+    <td><%= sh.d_time  %></td>
+    <td><%= sh.a_time  %></td>
+    <td><%= sh.duration  %></td>
+    <td><%= sh.flight_id  %></td>
+    <td><%= link_to 'Show', schedule_path(sh), class: "btn btn-outline-info btn-sm" %></td>
+    <% if user_signed_in? && current_user.role.code == "admin" %>
+    <td><%= link_to 'Edit', edit_schedule_path(sh), class: "btn btn-outline-warning btn-sm"%></td>
+    <td><%= link_to 'Delete', schedule_path(sh), class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: "Are you Sure?? " } %>
+    </td>
+    <% end %>
+  </tr>
+ <% end %>
+</table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+		<div class="col-8">
+			<h3>Flight List</h3>
+			<% if user_signed_in? && current_user.role.code == "admin" %>
+<%= link_to 'Add Flights', new_flight_path, class: "btn btn-outline-primary btn-sm" %> &nbsp;&nbsp;
+<%= link_to 'Add Schedules', new_schedule_path, class: "btn btn-outline-primary btn-sm"  %>
+<% end %>
+
+<br><br>
+<%= form_for "",url: flights_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search..",class: "form-control" %>
+<% end %>
+<br>
+<table class="table table-striped table-hover table-bordered">
+	<tr>
+	<th>Flight Name</th>
+	<th>Source</th>
+	<th>Destination</th>
+	<th>Status</th>
+	<th colspan="3">Actions</th>
+	</tr>
+<% @flights.each do |flight| %>
+	<tr>
+		<td><%= flight.name %></td>
+		<td><%= flight.source %></td>
+		<td><%= flight.destination %></td>
+		<td><%= flight.status %></td>
+		
+		<td><%= link_to 'Show',flight_path(flight), class: "btn btn-outline-info btn-sm" %></td>
+	
+		<% if user_signed_in? && current_user.role.code == "admin" %>
+		
+		<td><%= link_to 'Edit',edit_flight_path(flight), class: "btn btn-outline-warning btn-sm" %></td>
+		<td><%= link_to 'Delete',flight_path(flight), class: "btn btn-outline-danger btn-sm" ,
+		method: :delete, data: { confirm: "Are you Sure? " } %></td>
+<% else %>
+		<td><%= link_to 'Book a Flight',new_booking_path, class: "btn btn-outline-info btn-sm" %>
+	
+		</td>
+	
+		<% end %>
+	</tr>
+<% end %>
+</table>
+		</div>
+	</div>
+</div>

@@ -1,37 +1,8 @@
-<h1>Add Airline </h1>
-
- <%= form_with(model: [ @airport, @airport.airlines.build ], local: true) do |form|  %>
- <!-- Validations Section -->
- <% if @airline.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@airline.errors.count, "error") %> prohibited
-        this airport from being saved:
-      </h2>
-      <ul>
-        <% @airline.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="container">
+    <div class="row">
+       <div class="col-6">
+        <h1>Add Airline </h1>
+            <%= render 'form' %>
+       </div> 
     </div>
-  <% end %>
-  <!-- Validation Section Ends Here -->
-
-  <!-- Add Data -->
- <p>
-  <%= form.label :name %><br />
-  <%= form.text_field :name %>
-</p>
-
-
- <p>
-  <%= form.label :airline_type %><br />
-  <%= form.text_field :airline_type %>
-</p>
-
-
-<p>
-	<%= form.submit %>
-</p>
-
- <% end %>
+</div>

@@ -1,13 +1,29 @@
-<h1>Airline Details</h1>
-<br />
-<table>
-	<tr>
-		<th>Airline Name</th>
-	    <th>Airline Type</th>
-	</tr>
-	<tr>
-		<td><%= @airline.name %></td>
-	    <td><%= @airline.airline_type %></td>
-	</tr>
-	
+<div class="container">
+	<div class="row">
+	  <div class="text-center">
+	  		<div class="col-md-6">
+			<div class="card text-center">
+  <div class="card-header">
+    <strong>Airline Details</strong>
+  </div>
+  <div class="card-body">
+    <table class="table">
+       <tr>
+       	<th class="card-title">Airline Name</th>
+        <th class="card-title">Airline Type</th>
+       </tr>
+      <tr>
+      	<td class="card-text"><%= @airline.name %></td>
+      	<td class="card-text"><%= @airline.airline_type %></td>
+      </tr>
 </table>
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to 'Edit', edit_airport_airline_path(@airline),class: "btn btn-success" %>
+	<%= link_to 'Back', airport_airlines_path,class: "btn btn-dark" %>
+  </div>
+</div>
+		</div>	
+	  </div>
+	</div>	
+</div>

@@ -1,0 +1,11 @@
+
+
+<div class="col-8">
+  <% if lookup_context.template_exists?(current_user.role.code, "users/profile", true) %>
+
+    <%= render partial: "users/profile/#{current_user.role.code}", locals: { user: @user } %>
+
+  <% else %>
+    <%= render partial: "users/profile/employee", locals: { user: @user } %>
+  <% end %>
+</div>

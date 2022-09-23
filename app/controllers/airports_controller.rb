@@ -1,4 +1,5 @@
 class AirportsController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
 	def new
 		@airport = Airport.new
 	end
@@ -13,6 +14,30 @@ class AirportsController < ApplicationController
 	end
 	def index
 		@airports = Airport.all
+	end
+
+	def show
+		@airport = Airport.find(params[:id])
+	end
+
+	def edit
+		@airport = Airport.find(params[:id])
+	end
+
+	def update
+		@airport = Airport.find(params[:id])
+		
+		if @airport.update(airport_params)
+			redirect_to airport_path(@airport)
+		else
+			render 'edit'
+		end
+	end
+	def destroy
+		@airport = Airport.find(params[:id])
+
+		@airport.destroy
+		redirect_to airports_path
 	end
 
 	private 

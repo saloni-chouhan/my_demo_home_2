@@ -1,1 +1,33 @@
-<h1>Airport Details</h1>
+<div class="container">
+	<div class="row">
+	  <div class="text-center">
+	  		<div class="col-md-8">
+			<div class="card text-center">
+  <div class="card-header">
+    <strong>Airport Details</strong>
+  </div>
+  <div class="card-body">
+    <table class="table">
+       <tr>
+       	<th class="card-title">Airport Name</th>
+        <th class="card-title">Country</th>
+        <th class="card-title">State</th>
+        <th class="card-title">City</th>
+       </tr>
+      <tr>
+      	<td class="card-text"><%= @airport.airport_name %></td>
+      	<td class="card-text"><%= @airport.country %></td>
+      	<td class="card-text"><%= @airport.state %></td>
+      	<td class="card-text"><%= @airport.city %></td>
+      </tr>
+</table>
+  </div>
+  <div class="card-footer text-muted">
+    <%=link_to 'Edit',edit_airport_path , class: "btn btn-success" %>
+	<%= link_to 'Back', airports_path,class: "btn btn-dark" %>
+  </div>
+</div>
+		</div>	
+	  </div>
+	</div>	
+</div>

@@ -1,0 +1,25 @@
+<% if @user.role == "admin" %>
+
+<h3><%= @user.full_name %></h3>
+
+<p><strong>Admin:</strong><%= @user.admin? %></p>
+
+<p><%= @user.role.name %></p>
+
+<% end %>
+
+<h4>Profile</h4>
+
+<p><%= @user.name %></p>
+
+<%= link_to 'Warn User', '#' %>
+
+<%= link_to 'Lock User Account', '#' %>
+
+<%= link_to 'Unlock User Account', '#' %>
+
+<% if current_user.id == @user.id %>
+
+  <%= link_to 'Edit My Profile', edit_user_path(current_user),class: 'btn btn-primary' %>
+
+<% end %>
