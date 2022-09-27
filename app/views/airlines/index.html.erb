@@ -1,5 +1,7 @@
+<% if current_user.role.code == "admin" %>
+
 <div class="container">
-	<h1>Airline List</h1>
+	<h3>Airline List</h3>
 	<% if current_user.role.code == "admin" %>
 <%= link_to 'Add Airline', new_airport_airline_path, class: "btn btn-outline-primary btn-sm" %>
 <% end %><br><br>
@@ -25,3 +27,6 @@
 	
 </table>
 </div>
+<% else %>
+   <%= render  'layouts/alerts' %>
+<% end %>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/search', to: "bookings#search"
 
+  get '/error', to: "flights#error"
+
   root to: 'pages#home'
   resources :airports  do 
     resources :airlines

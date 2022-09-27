@@ -1,7 +1,8 @@
+<% if current_user.role.code == "admin" %>
 <div class="container">
     <div class="row">
        <div class="col-6">
-           <h1>Edit Airline </h1>
+           <h3>Edit Airline </h3>
 
  <%= render 'form' %>
  
@@ -10,3 +11,6 @@
        </div> 
     </div>
 </div>
+<% else %>
+ <%= render 'layouts/alerts' %>
+<% end %>

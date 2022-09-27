@@ -1,6 +1,5 @@
 class AirlinesController < ApplicationController
 	before_action :get_airport
-	before_action :authenticate_user!, except: [:index, :show]
 
 	def new
 		@airline = @airport.airlines.new

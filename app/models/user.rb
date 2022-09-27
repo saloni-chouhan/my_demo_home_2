@@ -4,13 +4,14 @@ has_many :bookings,dependent: :destroy
 has_many :tickets, dependent: :destroy
 after_create :set_default_role
 belongs_to :role, optional: true
+has_one_attached :image
 # has_one :flight
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
-  enum role: [ employee: 0, admin: 1 ]
+  # enum role: [ employee: 0, admin: 1 ]
 
   validates :phone, numericality: { only_integer: true },length: { is:10 } 
 

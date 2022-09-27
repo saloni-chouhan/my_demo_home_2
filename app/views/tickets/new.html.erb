@@ -1,3 +1,4 @@
+<% if current_user.role.code == "admin" %>
 <div class="container">
     <div class="row">
        <div class="col-8">
@@ -10,3 +11,6 @@
        </div> 
     </div>
 </div>
+<% else %>
+  <h2 style="color: red;">You are not authorised to access this page!!</h2>
+<% end %>

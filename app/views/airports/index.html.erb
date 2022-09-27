@@ -1,3 +1,4 @@
+<% if current_user.role.code == "admin" %>
 <div class="container">
 	<h3>Airport List</h3>
 
@@ -28,3 +29,6 @@
 	
 </table>
 </div>
+<% else %>
+<%= render 'layouts/alerts' %>
+<% end %>

@@ -1,6 +1,6 @@
 class Ticket < ApplicationRecord
 	belongs_to :flight
-	belongs_to :user
+	
 	has_one :booking,dependent: :destroy
 
 	# validates :passport_no, format: { with: /[A-PR-WYa-pr-wy][1-9]\\d\\s?\\d{4}[1-9]/ }

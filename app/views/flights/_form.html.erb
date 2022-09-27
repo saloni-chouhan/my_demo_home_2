@@ -1,3 +1,4 @@
+<% if current_user.role.code == "admin" %>
 <%= form_with(model: @flight,local: true) do |form| %>
 
 <!-- Validations Section -->
@@ -46,5 +47,7 @@
 <p>
 	<%= form.submit class: "btn btn-outline-success" %>
 </p>
+
+<% end %>
 
 <% end %>

@@ -1,3 +1,4 @@
+<% if current_user.role.code == "admin" %>
 <div class="container">
     <div class="row">
        <div class="col-8">
@@ -10,3 +11,7 @@
        </div> 
     </div>
 </div>
+
+<% else %>
+<%= render 'layouts/alerts' %>
+<% end %>

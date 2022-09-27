@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
 	# before_action :add_id
 	def new
 		@book = Booking.new
