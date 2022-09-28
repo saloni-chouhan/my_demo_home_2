@@ -10,5 +10,4 @@ class Flight < ApplicationRecord
     def self.search_by(search_term)
         where("LOWER(name) LIKE :search OR LOWER(source) LIKE :search OR LOWER(destination) LIKE :search", search: "%#{search_term.downcase}%")
     end
-
 end

@@ -15,7 +15,7 @@ class Booking < ApplicationRecord
     validates :address,presence:true, length: { minimum: 6 }
     validates :email, presence: true, email:true
 	# validates :passport_no, format: { with: /^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$/ }, :multiline => true  
-
+    validates :passport_no, presence: true, length: { is: 8 }
 	
     # CallBacks
 	after_create :welcome_email
