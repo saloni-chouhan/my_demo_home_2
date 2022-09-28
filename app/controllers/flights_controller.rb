@@ -9,8 +9,6 @@ class FlightsController < ApplicationController
 
   def index 
     @flights = Flight.all
-    # @test = "Bestpeers"
-    byebug
     
     if params[:search]
       @search = params[:search]
@@ -44,10 +42,9 @@ class FlightsController < ApplicationController
   end
 
   def show
-    # byebug
     @flight = Flight.find(params[:id])
-
   end
+
   def destroy
     @flight = Flight.find(params[:id])
     @flight.destroy

@@ -74,9 +74,7 @@
   <%= form.select :ticket_id, Ticket.all.collect { |t| [ t.id ]  }, class: "form-select" %>
 </p>
 
-<p>
-  <%= form.number_field :user_id ,required: true, class: 'form-control', value: current_user.id, type: :hidden %>
-</p>
+
 
 <p>
 	<%= form.submit class: "btn btn-outline-success" %>
