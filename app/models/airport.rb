@@ -6,4 +6,5 @@ class Airport < ApplicationRecord
 	validates :country , inclusion: { in: %w( India, US ), message: "%{value} is not a valid Country." }
 	# validates :state, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
 	# validates :city, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+
 end
