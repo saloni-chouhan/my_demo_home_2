@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index] 
-  before_action :index, only: [:show]
+  # before_action :index, only: [:show]
   # load_and_authorize_resource
   # before_action :is_admin?, only: [:show, :index]
   def new 
@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
 
   def index 
     @flights = Flight.all
-    @test = "Bestpeers"
+    # @test = "Bestpeers"
     byebug
     
     if params[:search]
@@ -44,7 +44,7 @@ class FlightsController < ApplicationController
   end
 
   def show
-    byebug
+    # byebug
     @flight = Flight.find(params[:id])
 
   end
