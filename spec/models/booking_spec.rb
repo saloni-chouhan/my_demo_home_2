@@ -52,11 +52,13 @@ describe Booking do
   		expect(record.errors[:name_of_passenger]).to_not include("must start with upper case")
   	end
 
-  	# it "After create send Booking confirmation mail" do
-  	# 	book = Booking.new
-  	# 	book.should_receive(:welcome_email)
-  	# 	book.run_callbacks(:after_create)
-  	# end
+    	# it "After create send Booking confirmation mail" do
+    	# 	book = Booking.new
+    	# 	book.should_receive(:welcome_email)
+    	# 	book.run_callbacks(:after_create)
+    	# end
+
+    
 
   end
 end
