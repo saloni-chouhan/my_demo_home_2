@@ -1,11 +1,11 @@
 class Flight < ApplicationRecord
   belongs_to :airline
-    has_many :schedules,dependent: :destroy
-    has_many :tickets,dependent: :destroy
+  has_many :schedules,dependent: :destroy
+  has_many :tickets,dependent: :destroy
 
-    validates :name,:source,:destination, presence: true
+  validates :name,:source,:destination, presence: true
 
-    after_create :check_length_of_name
+  after_create :check_length_of_name
 
 
 

@@ -58,7 +58,17 @@ describe Booking do
     	# 	book.run_callbacks(:after_create)
     	# end
 
-    
+    # let(:email) { c(:email) }
+    # FactoryBot.build(:email => 'everlastingwardrobe@example.com')
 
-  end
+    # describe '#sendBooking Confirmation Mail' do 
+    #   it 'Fires send_email method as after_create method callbacks' do
+    #     expect(email).to receive(:welcome_email)
+    #     email.run_callbacks(:create)
+    #   end
+    # end
+    describe Booking do
+      it { is_expected.to callback(:check_passport_length).before(:save) }
+    end
+end 
 end

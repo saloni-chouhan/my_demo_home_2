@@ -15,16 +15,27 @@ class Booking < ApplicationRecord
     validates :address,presence:true, length: { minimum: 6 }
     validates :email, presence: true, email:true
 	# validates :passport_no, format: { with: /^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$/ }, :multiline => true  
-    validates :passport_no, presence: true, length: { is: 8 }
+    validates :passport_no, presence: true
 	
     # CallBacks
 	after_create :welcome_email
+
+	before_save :check_passport_length
 	
     # methods
 	private
 	def welcome_email
 		BookingMailer.welcome_email(self.email).deliver_now
 	end 
+
+	def check_passport_length
+		if passport_no.length == 8
+			byebug
+			self.passport_no = passport_no
+		else 
+			self.passport_no = "Invalid Passport"
+		end
+	end
 
 	def self.search_by(search_term)
         where("LOWER(name_of_passenger) LIKE :search OR LOWER(source) LIKE :search OR LOWER(destination) OR LOWER(class_type) LIKE :search ", search: "%#{search_term.downcase}%")
