@@ -5,6 +5,11 @@ class FlightsController < ApplicationController
   # before_action :is_admin?, only: [:show, :index]
   def new 
     @flight = Flight.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def index 
@@ -16,6 +21,12 @@ class FlightsController < ApplicationController
     else
       @flights = Flight.all
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def create
@@ -32,25 +43,43 @@ class FlightsController < ApplicationController
         
   def edit
     @flight = Flight.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
     @flight = Flight.find(params[:id])
+    respond_to do |format|
     if @flight.update(flight_params)
       redirect_to flights_path
+
+      format.js
     else
       render 'edit'
+    end
     end
   end
 
   def show
     @flight = Flight.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
     @flight = Flight.find(params[:id])
     @flight.destroy
-    redirect_to flights_path
+
+    respond_to do |format|
+      redirect_to flights_path
+      format.js
+    end
   end
 
   private

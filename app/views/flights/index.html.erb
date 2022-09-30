@@ -3,7 +3,7 @@
 		<div class="col-8">
 			<h3>Flight List</h3>
 			<% if user_signed_in? && current_user.role.code == "admin" %>
-<%= link_to 'Add Flights', new_flight_path, class: "btn btn-outline-primary btn-sm" %> &nbsp;&nbsp;
+<%= link_to 'Add Flights', new_flight_path,remote:true, class: "btn btn-outline-primary btn-sm" %> &nbsp;&nbsp;
 <%= link_to 'Add Schedules', new_schedule_path, class: "btn btn-outline-primary btn-sm"  %>
 <% end %>
 
@@ -21,7 +21,7 @@
 	<th colspan="3">Actions</th>
 	</tr>
 <% @flights.each do |flight| %>
-	<tr>
+	<tr id= "dom_id">
 		<td><%= flight.name %></td>
 		<td><%= flight.source %></td>
 		<td><%= flight.destination %></td>

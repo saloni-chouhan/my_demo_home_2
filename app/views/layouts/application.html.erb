@@ -8,12 +8,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
 
-     <%= stylesheet_link_tag    "application", :media => "all" %>
-     <%= javascript_include_tag "application" %>
+     <%= stylesheet_pack_tag    "application", :media => "all", 'data-turbolinks-track': 'reload' %>
+     <%= javascript_pack_tag "application", 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
     <%= yield %>
+
+ 
   </body>
 </html>

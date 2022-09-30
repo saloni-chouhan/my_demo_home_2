@@ -1,0 +1,4 @@
+$("#<%= dom_id(@flight) %>").replaceWith("<%= escape_javascript(render(partial: @flight)) %>");
+<% @flight = Flight.new # reset for new form %>
+$(".edit_flight").replaceWith("<%= escape_javascript(render(partial: "form"))%>")
+$(".new_flight")[0].reset();
