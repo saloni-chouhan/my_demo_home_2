@@ -20,14 +20,16 @@ class FlightsController < ApplicationController
 
   def create
     @flight = Flight.create(flight_params)
-
-    if @flight.save
-      redirect_to @flight
-    else
-      render 'new'
-    end
+      respond_to do |format|
+        if @flight.save
+          redirect_to @flight
+          format.js
+        else
+          render 'new'
+        end
+      end
   end
-
+        
   def edit
     @flight = Flight.find(params[:id])
   end

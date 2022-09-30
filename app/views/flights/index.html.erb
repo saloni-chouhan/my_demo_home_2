@@ -31,7 +31,7 @@
 	
 		<% if user_signed_in? && current_user.role.code == "admin" %>
 		
-		<td><%= link_to 'Edit',edit_flight_path(flight), class: "btn btn-outline-warning btn-sm" %></td>
+		<td><%= link_to 'Edit',edit_flight_path(flight), remote: true, class: "btn btn-outline-warning btn-sm" %></td>
 		<td><%= link_to 'Delete',flight_path(flight), class: "btn btn-outline-danger btn-sm" ,
 		method: :delete, remote: true, data: { confirm: "Are you Sure? " } %></td>
 <% else %>

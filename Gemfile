@@ -39,7 +39,7 @@ gem 'rubocop', require: false
 
 gem 'jquery-rails'
 
-gem 'webpacker'
+# gem 'webpacker'
 
 # gem 'factory_bot'
 

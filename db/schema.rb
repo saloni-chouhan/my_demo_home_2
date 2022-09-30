@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_30_070059) do
+ActiveRecord::Schema.define(version: 2022_09_27_050335) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,15 +68,6 @@ ActiveRecord::Schema.define(version: 2022_09_30_070059) do
     t.integer "user_id"
     t.index ["ticket_id"], name: "index_bookings_on_ticket_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
-  end
-
-  create_table "entries", force: :cascade do |t|
-    t.string "name"
-    t.text "address"
-    t.string "phone"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "flights", force: :cascade do |t|
