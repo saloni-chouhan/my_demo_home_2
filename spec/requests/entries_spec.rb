@@ -8,3 +8,4 @@ RSpec.describe "Entries", type: :request do
     end
   end
 end
+  
