@@ -20,7 +20,9 @@ class Booking < ApplicationRecord
     # CallBacks
 	after_create :welcome_email
 
-	before_save :check_passport_length
+	# before_save :check_passport_length
+
+	before_create :view_premissions
 	
     # methods
 	private
@@ -30,7 +32,7 @@ class Booking < ApplicationRecord
 
 	def check_passport_length
 		if passport_no.length == 8
-			byebug
+			# byebug
 			self.passport_no = passport_no
 		else 
 			self.passport_no = "Invalid Passport"
@@ -40,5 +42,9 @@ class Booking < ApplicationRecord
 	def self.search_by(search_term)
         where("LOWER(name_of_passenger) LIKE :search OR LOWER(source) LIKE :search OR LOWER(destination) OR LOWER(class_type) LIKE :search ", search: "%#{search_term.downcase}%")
     end
+
+    def self.view_premissions(current_user)
+  		current_user.role.code == "admin"? Booking.all : current_user.bookings
+	end
 
 end

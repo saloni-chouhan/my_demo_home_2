@@ -2,14 +2,14 @@ Rails.application.routes.draw do
 
   # get 'homes/index'
   devise_for :users
-
-  get '/users/sign_out' => 'devise/sessions#destroy'
-
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   resources :users, only: [:index, :show, :edit, :update]
 
   get '/search', to: "bookings#search"
 
-  get '/error', to: "flights#error"
+  # get '/error', to: "flights#error"
 
   root to: 'pages#home'
   resources :airports  do 

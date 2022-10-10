@@ -134,4 +134,12 @@ ActiveRecord::Schema.define(version: 2022_09_27_050335) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "airlines", "airports"
+  add_foreign_key "bookings", "tickets"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "flights", "airlines"
+  add_foreign_key "schedules", "flights"
+  add_foreign_key "tickets", "flights"
+  add_foreign_key "users", "airports"
+  add_foreign_key "users", "roles"
 end

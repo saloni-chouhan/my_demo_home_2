@@ -1,5 +1,5 @@
 <% if current_user.role.code == "admin" %>
-<%= form_with(model: @flight, local: false) do |form| %>
+<%= form_with(model: @flight) do |form| %>
 
 <!-- Validations Section -->
  <% if @flight.errors.any? %>
