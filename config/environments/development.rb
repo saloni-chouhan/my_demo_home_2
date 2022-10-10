@@ -42,8 +42,10 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # Suppress logger output for asset requests.
+  # Suppress logger output for asset requests. 
   config.assets.quiet = true
+
+  config.serve_static_files = true
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

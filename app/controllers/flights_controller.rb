@@ -33,10 +33,10 @@ class FlightsController < ApplicationController
     @flight = Flight.create(flight_params)
       respond_to do |format|
         if @flight.save
-          redirect_to @flight
+          format.html { redirect_to @flight, notice: "Flight was successfully created." }
           format.js
         else
-          render 'new'
+          render 'new' 
         end
       end
   end
@@ -45,7 +45,7 @@ class FlightsController < ApplicationController
     @flight = Flight.find(params[:id])
 
     respond_to do |format|
-      format.html
+      format.html 
       format.js
     end
   end
@@ -54,11 +54,11 @@ class FlightsController < ApplicationController
     @flight = Flight.find(params[:id])
     respond_to do |format|
     if @flight.update(flight_params)
-      redirect_to flights_path
+      format.html { redirect_to flights_path }
 
       format.js
     else
-      render 'edit'
+      format.js { render 'edit' }
     end
     end
   end

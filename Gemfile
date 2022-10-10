@@ -5,9 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+ruby '2.6.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '~> 5.2.0'
+
+
 
 gem 'rails', '~> 6.1.0'
 # Use sqlite3 as the database for Active Record
@@ -41,7 +43,7 @@ gem 'jquery-rails'
 
 gem "webpacker"
 
-# gem 'factory_bot'
+# gem 'factory_bot'                                                  
 
 gem 'letter_opener', group: :development
 # Use Capistrano for deployment
@@ -53,7 +55,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver'                                                           
 end
 
 group :development do
@@ -69,5 +71,9 @@ group :test do
   gem 'shoulda-callback-matchers'
 end
 
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'faker'

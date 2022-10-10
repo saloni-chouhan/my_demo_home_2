@@ -15,6 +15,9 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+//= require jquery
+//= require jquery_ujs
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStotrage from "@rails/activestorage"

@@ -3,4 +3,4 @@ describe BookingsController, type: :controller do
 		get :index
 		expect(response).to render_template("bookings/index")
 	end
-end
+end 

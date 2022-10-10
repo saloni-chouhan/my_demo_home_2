@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'homes/index'
+  # get 'homes/index'
   devise_for :users
+
+  get '/users/sign_out' => 'devise/sessions#destroy'
 
   resources :users, only: [:index, :show, :edit, :update]
 
@@ -20,6 +22,10 @@ Rails.application.routes.draw do
   resources :tickets
 
   resources :bookings 
+
+  # devise_scope :user do
+  #   get '/users/sign_out' => 'devise/sessions#destroy'
+  # end
 
   # resources :airlines, only: [:index,:show,:create,:new] do 
   #     resources :flights
